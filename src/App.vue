@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <shopHeader></shopHeader>
+  <div class="main__main"><shopPage></shopPage></div>
+  <shopFooter></shopFooter>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import shopPage from './components/shopPage.vue'
+import shopHeader from './components/shopHeader.vue'
+import shopFooter from './components/shopFooter.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    shopPage,
+    shopHeader,
+    shopFooter
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html,body{
+  margin: 0;
+}
+
+.main__main{
+  background-color: rgb(66, 66, 66);
 }
 </style>
