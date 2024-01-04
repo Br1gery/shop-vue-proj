@@ -18,7 +18,7 @@
                 <p>Количество оценок: {{ prop_rate_count2 }}</p>
             </div>
             <div class="buy__zone">
-                <p>{{ prop_price2 }}</p>
+                <p>Цена: {{ Math.ceil(prop_price2 * 91) }} ₽</p>
                 <button class="buy">В корзину</button>
             </div>
         </div>
@@ -154,5 +154,9 @@ h4 {
     max-width: 200px;
     height: 200px;
     object-fit: contain;
+}
+
+.buy:hover{
+    background-color: rgb(63, 63, 63);
 }
 </style>

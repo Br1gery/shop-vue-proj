@@ -3,6 +3,7 @@
         <img :src="prop_image" alt="" class="img__main">
         <div class="card__main__content">
             <h4>{{ prop_name }}</h4>
+            <p>Цена: {{ Math.ceil(prop_price * 91) }} ₽</p>
             <div class="icons">
                 <p>Рейтинг: {{ prop_rate }}</p>
                 <div class="rating">
@@ -62,7 +63,7 @@ export default {
 }
 
 .card__main{
-    height: 350px;
+    height: 380px;
     width: 450px;
     padding-top: 20px;
     display: flex;
@@ -84,5 +85,8 @@ export default {
     width: 150px;
     height: 30px;
     border-radius: 15px;
+}
+.about_btn:hover{
+    background-color: rgb(63, 63, 63);
 }
 </style>

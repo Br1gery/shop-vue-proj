@@ -12,7 +12,7 @@
                 getter()
             }">
                 <option value="0">Всё</option>
-                <option value="1">электроника</option>
+                <option value="1">Электроника</option>
                 <option value="2">Ювелирные изделия</option>
                 <option value="3">Мужская одежда</option>
                 <option value="4">Женская одежда</option>
