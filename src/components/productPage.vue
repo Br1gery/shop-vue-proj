@@ -45,7 +45,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .darkness {
     width: 100%;
     min-height: 1080px;

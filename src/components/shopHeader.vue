@@ -13,7 +13,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 header {
     height: 130px;
     width: 100%;
