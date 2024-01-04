@@ -4,11 +4,11 @@
         <div class="card__main__content">
             <h4>{{ prop_name }}</h4>
             <div class="icons">
+                <p>Рейтинг: {{ prop_rate }}</p>
                 <div class="rating">
                     <div class="rating__yellow" :style="{width : (prop_rate * 18) + 'px'}"></div>
                     <div class="rating__white"></div>
                 </div>
-                <p>{{ prop_rate }}</p>
                 <button class="about_btn" @click="AboutOpen">Подробнее</button>
             </div>
         </div>
@@ -76,5 +76,13 @@ export default {
 
 .card__main h4{
     text-align: center;
+}
+
+.about_btn{
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 30px;
+    border-radius: 15px;
 }
 </style>

@@ -2,8 +2,8 @@
     <div class="darkness">
     </div>
     <div class="window1">
-        <div class="main">
-            <img :src="prop_image2" alt="">
+        <div class="main__page__prod">
+            <img :src="prop_image2" alt="" class="main__image">
             <div class="title__main">
                 <h4>{{ prop_name2 }}</h4>
                 <p>{{ prop_category2 }}</p>
@@ -11,7 +11,7 @@
             <div class="desc__main">{{ prop_desc2 }}</div>
             <div class="icons__main">
                 <div class="stars">
-                    <div class="star__yellow" :style="{width : (prop_rate2 * 18) + 'px'}"></div>
+                    <div class="star__yellow" :style="{ width: (prop_rate2 * 18) + 'px' }"></div>
                     <div class="star__white"></div>
                     <p>рейтинг: {{ prop_rate2 }}</p>
                 </div>
@@ -59,12 +59,11 @@ export default {
     display: flex;
     flex-direction: column;
     max-width: 500px;
-    max-height: 600px;
+    max-height: 650px;
     margin: 0 auto;
     margin-top: 180px;
     background: #fff;
     border-radius: 10px;
-    padding-top: 25px;
 }
 
 .window1 img {
@@ -101,7 +100,7 @@ p {
     background-image: url('../assets/Raiting_white.png');
 }
 
-.icons__main{
+.icons__main {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -109,37 +108,51 @@ p {
     width: 100%;
 }
 
-.desc__main{
+.desc__main {
     margin-bottom: 20px;
     text-align: center;
 }
 
-.stars p{
+.stars p {
     margin: 0;
 }
 
-.buy__zone{
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-align-items: center;
-width: 60%;
+.buy__zone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
 }
-.main{
+
+.main__page__prod {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 25px;
+    justify-content: space-between;
+    max-height: 650px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
-p,h4{
+p,
+h4 {
     text-align: center;
 }
 
-.buy__zone button{
+.buy__zone button {
     background-color: black;
     color: white;
     width: 150px;
     height: 30px;
     border-radius: 15px;
+}
+
+.main__image {
+    max-width: 200px;
+    height: 200px;
+    object-fit: contain;
 }
 </style>
