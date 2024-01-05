@@ -8,7 +8,7 @@
                 <h4>{{ prop_name2 }}</h4>
                 <p>{{ prop_category2 }}</p>
             </div>
-            <div class="desc__main">{{ prop_desc2 }}</div>
+            <div class="desc__main"><p>{{ prop_desc2 }}</p></div>
             <div class="icons__main">
                 <div class="stars">
                     <div class="star__yellow" :style="{ width: (prop_rate2 * 18) + 'px' }"></div>
@@ -119,9 +119,22 @@ p {
     width: 100%;
 }
 
-.desc__main {
+.desc__main{
     margin-bottom: 20px;
     text-align: center;
+    max-height: 180px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.desc__main::-webkit-scrollbar {
+    border-radius: 15px;
+    width: 5px;
+}
+
+.desc__main::-webkit-scrollbar-thumb {
+    background-color: black;
+    border-radius: 15px;
 }
 
 .stars p {

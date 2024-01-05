@@ -80,7 +80,7 @@
                     display_cart--
                 }
             }">Корзина</button>
-            <div class="shop_cart__main" v-if="cart_amounts_parsed && display_cart == 1">
+            <div class="shop_cart__main" v-if="display_cart == 1">
                 <productInCart v-for="index_carts in cart_amounts_parsed.length" v-bind:key="index_carts"
                     :prop_amount3="cart_amounts_parsed[index_carts - 1]" :prop_image3="cart_images_parsed[index_carts - 1]"
                     :prop_name3="cart_names_parsed[index_carts - 1]" :prop_price3="cart_prices_parsed[index_carts - 1]"
