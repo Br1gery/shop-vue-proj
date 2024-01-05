@@ -84,7 +84,8 @@
                 <productInCart v-for="index_carts in cart_amounts_parsed.length" v-bind:key="index_carts"
                     :prop_amount3="cart_amounts_parsed[index_carts - 1]" :prop_image3="cart_images_parsed[index_carts - 1]"
                     :prop_name3="cart_names_parsed[index_carts - 1]" :prop_price3="cart_prices_parsed[index_carts - 1]"
-                    :prop_index3="index_carts - 1" @deleting="deletingProd" @mounted1="summ_itog" @unmounted1="summ_itog_after_del"></productInCart>
+                    :prop_index3="index_carts - 1" @deleting="deletingProd" @mounted1="summ_itog"
+                    @unmounted1="summ_itog_after_del"></productInCart>
                 <div class="overall">
                     <p>Итоговая цена: {{ sum }} ₽</p>
                 </div>
@@ -145,6 +146,7 @@ export default {
             deleted_price: 0,
             deleted_amount: 0,
             sum: 0,
+            opened_cart: 1,
         }
     },
     methods: {
@@ -230,11 +232,14 @@ export default {
             localStorage.setItem('cart_prices', parsed3)
             localStorage.setItem('cart_amounts', parsed4)
         },
-        summ_itog(index) {
-            this.sum += Math.ceil((this.cart_prices_parsed[index]*this.cart_amounts_parsed[index])*91)
+        summ_itog() {
+            this.sum =0
+            for(let i = 0;i < this.cart_amounts_parsed.length;i++){
+                this.sum+=Math.ceil((this.cart_amounts_parsed[i]*this.cart_prices_parsed[i])*91)
+            }
         },
-        summ_itog_after_del(){
-            this.sum -= Math.ceil((this.deleted_price*this.deleted_amount)*91)
+        summ_itog_after_del() {
+            this.sum -= Math.ceil((this.deleted_price * this.deleted_amount) * 91)
             this.deleted_price = 0
             this.deleted_amount = 0
         }
@@ -359,12 +364,12 @@ export default {
     border-radius: 15px 15px 0px 0px;
 }
 
-.overall{
+.overall {
     position: absolute;
     width: 100%;
     display: flex;
     flex-direction: row;
-    
+
     border: 2px solid;
     border-radius: 0px 0px 15px 15px;
     background-color: white;

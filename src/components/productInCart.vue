@@ -16,7 +16,7 @@
 export default {
     props: ['prop_image3', 'prop_price3', 'prop_amount3', 'prop_name3', 'prop_index3'],
     mounted() {
-        this.$emit('mounted1',this.prop_index3)
+        this.$emit('mounted1')
     },
     beforeUnmount() {
         this.$emit('unmounted1')
