@@ -18,8 +18,13 @@
                 <p>Количество оценок: {{ prop_rate_count2 }}</p>
             </div>
             <div class="buy__zone">
-                <p>Цена: {{ Math.ceil(prop_price2 * 91) }} ₽</p>
-                <button class="buy">В корзину</button>
+                <p>Цена: {{ Math.ceil(prop_price2 * 91) * amount }} ₽</p>
+                <input type="number" v-model="amount" class="amount_prod" @change="()=>{
+                    if(amount == 0){
+                        amount = 1
+                    }
+                }">
+                <button class="buy" @click="addToCart">В корзину</button>
             </div>
         </div>
         <div class="absoluiten_2"><button @click="ClosePage">&#215;</button></div>
@@ -31,13 +36,15 @@ export default {
     props: ['prop_name2', 'prop_desc2', 'prop_price2', 'prop_category2', 'prop_image2', 'prop_rate2', 'prop_rate_count2'],
     data() {
         return {
-
+            amount: 1
         }
     },
     methods: {
         ClosePage() {
             this.$emit('displaying')
-            console.log(this.prop_price2)
+        },
+        addToCart(){
+            this.$emit('adding',this.prop_image2,this.prop_name2,this.prop_price2,this.amount)
         }
     },
     mounted() {
@@ -53,6 +60,10 @@ export default {
     background-color: black;
     position: absolute;
     z-index: -1;
+}
+
+.amount_prod{
+    width: 50px;
 }
 
 .window1 {
@@ -122,7 +133,7 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 60%;
+    width: 80%;
 }
 
 .main__page__prod {
