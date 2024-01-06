@@ -233,9 +233,9 @@ export default {
             localStorage.setItem('cart_amounts', parsed4)
         },
         summ_itog() {
-            this.sum =0
-            for(let i = 0;i < this.cart_amounts_parsed.length;i++){
-                this.sum+=Math.ceil((this.cart_amounts_parsed[i]*this.cart_prices_parsed[i])*91)
+            this.sum = 0
+            for (let i = 0; i < this.cart_amounts_parsed.length; i++) {
+                this.sum += Math.ceil((this.cart_amounts_parsed[i] * this.cart_prices_parsed[i]) * 91)
             }
         },
         summ_itog_after_del() {
@@ -248,6 +248,10 @@ export default {
         this.getter()
     },
     mounted() {
+        this.sum = 0
+        for (let i = 0; i < this.cart_amounts_parsed.length; i++) {
+            this.sum += Math.ceil((this.cart_amounts_parsed[i] * this.cart_prices_parsed[i]) * 91)
+        }
         this.cart_images_parsed = JSON.parse(localStorage.getItem('cart_images'))
         this.cart_names_parsed = JSON.parse(localStorage.getItem('cart_names'))
         this.cart_prices_parsed = JSON.parse(localStorage.getItem('cart_prices'))
